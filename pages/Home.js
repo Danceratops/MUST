@@ -29,7 +29,7 @@ export default function Home({ navigation }) {
       </View>
       <View style={styles.bottomTextContainer}>
         <Text style={styles.bottomText}>Have an account already? </Text>
-        <TouchableWithoutFeedback onPress={() => console.log("Moving to login")}><Text style={styles.bottomTextLink}>Login Here</Text></TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Login')}><Text style={styles.bottomTextLink}>Login Here</Text></TouchableWithoutFeedback>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingBottom: 10,
-    paddingTop: 15,
+    paddingTop: 50,
     backgroundColor: "#F6F6F6",
     alignItems: "center",
     justifyContent: "space-between",
