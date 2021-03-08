@@ -1,11 +1,7 @@
 import React from "react";
 import { View, Image } from "react-native";
 
-type LogoProps = {
-  logoType: string;
-};
-
-export default function Logo({ logoType }: LogoProps) {
+export default function Logo({ logoType }) {
   if (logoType === "fullColor") {
     return (
       <View>

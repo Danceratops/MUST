@@ -10,7 +10,7 @@ import {
 
 import Logo from "../components/Logo";
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>M.U.S.T</Text>
@@ -20,7 +20,7 @@ export default function Home() {
         Because the world is dangerous, you need someone to watch your back.
       </Text>
       <View style={styles.nextButton}>
-        <TouchableWithoutFeedback onPress={() => console.log("image tapped")}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('SignUp')}>
           <Image source={require("../assets/next.png")} />
         </TouchableWithoutFeedback>
         <Text>Feel Safe Today</Text>
@@ -32,37 +32,37 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      paddingBottom: 10,
-      paddingTop: 15,
-      backgroundColor: "#F6F6F6",
-      alignItems: "center",
-      justifyContent: "space-around",
-      paddingLeft: 10,
-      paddingRight: 10,
-    },
-  
-    header: {
-      color: "#000",
-      fontSize: 64,
-    },
-  
-    subheader: {
-      fontSize: 24,
-    },
-  
-    paragraphs: {
-      textAlign: "center",
-      fontSize: 18,
-    },
-  
-    bottomText: {
-      fontSize: 11,
-    },
-  
-    nextButton: {
-      justifyContent: "flex-start",
-      alignItems: "center",
-    },
-  });
+  container: {
+    flex: 1,
+    paddingBottom: 10,
+    paddingTop: 15,
+    backgroundColor: "#F6F6F6",
+    alignItems: "center",
+    justifyContent: "space-around",
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+
+  header: {
+    color: "#000",
+    fontSize: 64,
+  },
+
+  subheader: {
+    fontSize: 24,
+  },
+
+  paragraphs: {
+    textAlign: "center",
+    fontSize: 18,
+  },
+
+  bottomText: {
+    fontSize: 11,
+  },
+
+  nextButton: {
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+});
