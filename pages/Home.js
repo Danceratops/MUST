@@ -13,8 +13,10 @@ import Logo from "../components/Logo";
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>M.U.S.T</Text>
-      <Text style={styles.subheader}>Mobile Urban Safety Tracker</Text>
+      <View style={styles.headingContainer}>
+        <Text style={styles.header}>M.U.S.T</Text>
+        <Text style={styles.subheader}>Mobile Urban Safety Tracker</Text>
+      </View>
       <Logo logoType="fullColor" />
       <Text style={styles.paragraphs}>
         Because the world is dangerous, you need someone to watch your back.
@@ -25,7 +27,10 @@ export default function Home({ navigation }) {
         </TouchableWithoutFeedback>
         <Text>Feel Safe Today</Text>
       </View>
-      <Text style={styles.bottomText}>Have an account already? Login Here</Text>
+      <View style={styles.bottomTextContainer}>
+        <Text style={styles.bottomText}>Have an account already? </Text>
+        <TouchableWithoutFeedback onPress={() => console.log("Moving to login")}><Text style={styles.bottomTextLink}>Login Here</Text></TouchableWithoutFeedback>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -38,9 +43,18 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: "#F6F6F6",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     paddingLeft: 10,
     paddingRight: 10,
+  },
+
+  headingContainer: {
+    textAlign: 'center',
+    alignItems: 'center'
+  },
+
+  bottomTextContainer: {
+    flexDirection: 'row'
   },
 
   header: {
@@ -65,4 +79,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
+
+  bottomTextLink: {
+    fontSize: 11,
+    color: "#4D2D52"
+  }
 });
