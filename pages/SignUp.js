@@ -40,7 +40,7 @@ export default function SignUp({ navigation }) {
           color="#2E839A"
           title="Sign Up Now"
           onPress={() => {
-            console.log("Signing Up");
+            navigation.navigate('Welcome');
           }}
           accessibilityLabel="Sign up for an account."
         />
