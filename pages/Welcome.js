@@ -8,7 +8,8 @@ import {
     TouchableWithoutFeedback,
 } from "react-native";
 
-export default function Welcome({ navigation }) {
+export default function Welcome({ route, navigation }) {
+    const { name } = route.params;
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
@@ -16,7 +17,7 @@ export default function Welcome({ navigation }) {
                 <Text style={styles.subheader}>Mobile Urban Safety Tracker</Text>
             </View>
             <View style={styles.paragraphContainer}>
-                <Text style={styles.subheader}>Welcome, User!</Text>
+                <Text style={styles.subheader}>Welcome, {name}</Text>
                 <Text style={styles.paragraphs}>
                     With M.U.S.T in your hands, you have access to crime data across the nation.
                     First, let us tell you what your new tool can do.
