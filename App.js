@@ -5,10 +5,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import Welcome from "./pages/Welcome";
-import TourHeatMap from "./pages/TourHeatMap";
-import TourInfoBuddy from "./pages/TourInfoBuddy";
-import TourSilentMode from "./pages/TourSilentMode";
+import Welcome from "./pages/Tour/Welcome";
+import TourHeatMap from "./pages/Tour/TourHeatMap";
+import TourInfoBuddy from "./pages/Tour/TourInfoBuddy";
+import TourSilentMode from "./pages/Tour/TourSilentMode";
+import SilentModeHome from "./pages/SilentMode/silentModeHome";
+import SilentModeContent from "./pages/SilentMode/silentModeContent";
 
 const Stack = createStackNavigator();
 
@@ -29,6 +31,8 @@ export default function App() {
         <Stack.Screen name="TourHeat" component={TourHeatMap} options={{ headerShown: false }} />
         <Stack.Screen name="TourInfo" component={TourInfoBuddy} options={{ headerShown: false }} />
         <Stack.Screen name="TourSilent" component={TourSilentMode} options={{ headerShown: false }} />
+        <Stack.Screen name="SilentModeHome" component={SilentModeHome} />
+        <Stack.Screen name="SilentModeContent" component={SilentModeContent} />
       </Stack.Navigator>
     </NavigationContainer>
   );
