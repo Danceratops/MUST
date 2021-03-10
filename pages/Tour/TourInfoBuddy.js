@@ -1,15 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    TouchableWithoutFeedback,
-} from "react-native";
+import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from "react-native";
 
-export default function Welcome({ route, navigation }) {
-    const { name } = route.params;
+export default function TourInfoBuddy({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
@@ -17,21 +10,23 @@ export default function Welcome({ route, navigation }) {
                 <Text style={styles.subheader}>Mobile Urban Safety Tracker</Text>
             </View>
             <View style={styles.paragraphContainer}>
-                <Text style={styles.subheader}>Welcome, {name}</Text>
+                <Text style={styles.subheader}>Info Buddy</Text>
                 <Text style={styles.paragraphs}>
-                    With M.U.S.T in your hands, you have access to crime data across the nation.
-                    First, let us tell you what your new tool can do.
-                </Text>
+                    Tell the buddy a radius around you to gather information. Info Buddy will update information as you move.
+            </Text>
             </View>
-            <View style={styles.mapButton}>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('TourHeat')}>
-                    <Image source={require("../assets/map.png")} />
+            <View style={styles.tourRow}>
+                <TouchableWithoutFeedback style={styles.arrowLeft} onPress={() => navigation.navigate('TourHeat')}>
+                    <Image source={require("../../assets/arrowLeft.png")} />
                 </TouchableWithoutFeedback>
-                <Text>Get Started</Text>
+                <Image style={styles.imageRow} source={require("../../assets/circleBuddy.png")} />
+                <TouchableWithoutFeedback style={styles.arrowRight} onPress={() => navigation.navigate('TourSilent')}>
+                    <Image source={require("../../assets/arrowRight.png")} />
+                </TouchableWithoutFeedback>
             </View>
             <View style={styles.bottomTextContainer}>
                 <Text style={styles.bottomText}>Skip Tour </Text>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}><Text style={styles.bottomTextLink}>Here</Text></TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('SilentModeHome')}><Text style={styles.bottomTextLink}>Here</Text></TouchableWithoutFeedback>
             </View>
             <StatusBar style="auto" />
         </View>
@@ -55,12 +50,20 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 
-    bottomTextContainer: {
-        flexDirection: 'row'
+    paragraphContainer: {
+        alignItems: 'center',
+        textAlign: 'center'
     },
 
-    paragraphContainer: {
+    tourRow: {
+        alignSelf: 'stretch',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center'
+    },
+
+    bottomTextContainer: {
+        flexDirection: 'row'
     },
 
     header: {
@@ -79,11 +82,6 @@ const styles = StyleSheet.create({
 
     bottomText: {
         fontSize: 11,
-    },
-
-    mapButton: {
-        justifyContent: "flex-start",
-        alignItems: "center",
     },
 
     bottomTextLink: {

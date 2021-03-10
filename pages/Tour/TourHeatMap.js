@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from "react-native";
 
-export default function TourInfoBuddy({ navigation }) {
+export default function TourHeatMap({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
@@ -10,23 +10,23 @@ export default function TourInfoBuddy({ navigation }) {
                 <Text style={styles.subheader}>Mobile Urban Safety Tracker</Text>
             </View>
             <View style={styles.paragraphContainer}>
-                <Text style={styles.subheader}>Info Buddy</Text>
+                <Text style={styles.subheader}>HeatMap Mode</Text>
                 <Text style={styles.paragraphs}>
-                    Tell the buddy a radius around you to gather information. Info Buddy will update information as you move.
+                    With HeatMap Mode, you have access to all kinds of useful information.
+                    Interact with the map to see various crime-rate statistics.
             </Text>
             </View>
             <View style={styles.tourRow}>
-                <TouchableWithoutFeedback style={styles.arrowLeft} onPress={() => navigation.navigate('TourHeat')}>
-                    <Image source={require("../assets/arrowLeft.png")} />
-                </TouchableWithoutFeedback>
-                <Image style={styles.imageRow} source={require("../assets/circleBuddy.png")} />
-                <TouchableWithoutFeedback style={styles.arrowRight} onPress={() => navigation.navigate('TourSilent')}>
-                    <Image source={require("../assets/arrowRight.png")} />
-                </TouchableWithoutFeedback>
+                <Image style={styles.imageRow} source={require("../../assets/circleHeat.png")} />
+                <View style={styles.arrowRow}>
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('TourInfo')}>
+                        <Image source={require("../../assets/arrowRight.png")} />
+                    </TouchableWithoutFeedback>
+                </View>
             </View>
             <View style={styles.bottomTextContainer}>
                 <Text style={styles.bottomText}>Skip Tour </Text>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}><Text style={styles.bottomTextLink}>Here</Text></TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('SilentModeHome')}><Text style={styles.bottomTextLink}>Here</Text></TouchableWithoutFeedback>
             </View>
             <StatusBar style="auto" />
         </View>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     tourRow: {
         alignSelf: 'stretch',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center'
     },
 
@@ -78,6 +78,11 @@ const styles = StyleSheet.create({
     paragraphs: {
         textAlign: "center",
         fontSize: 18,
+    },
+
+    arrowRow: {
+        position: 'absolute',
+        right: 0
     },
 
     bottomText: {

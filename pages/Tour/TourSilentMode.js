@@ -18,13 +18,13 @@ export default function TourSilentMode({ navigation }) {
             </View>
             <View style={styles.tourRow}>
                 <View style={styles.arrowRow}>
-                    <TouchableWithoutFeedback onPress={() => navigation.navigate('TourInfo')}>
-                        <Image source={require("../assets/arrowLeft.png")} />
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('SilentModeHome')}>
+                        <Image source={require("../../assets/arrowLeft.png")} />
                     </TouchableWithoutFeedback>
                 </View>
-                <Image style={styles.imageRow} source={require("../assets/circleSilent.png")} />
+                <Image style={styles.imageRow} source={require("../../assets/circleSilent.png")} />
             </View>
-            <TouchableOpacity onPress={() => { navigation.navigate('Home'); }} activeOpacity={0.95} style={styles.button}>
+            <TouchableOpacity onPress={() => { navigation.navigate('SilentModeHome'); }} activeOpacity={0.95} style={styles.button}>
                 <Text style={styles.buttonText} >Start Using M.U.S.T Now</Text>
             </TouchableOpacity>
             <StatusBar style="auto" />
