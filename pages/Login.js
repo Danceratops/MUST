@@ -33,7 +33,7 @@ export default function Login({ navigation }) {
                     color="#2E839A"
                     title="Log In"
                     onPress={() => {
-                        console.log("Logging In");
+                        navigation.navigate('Welcome');
                     }}
                     accessibilityLabel="Log in to your account."
                 />
