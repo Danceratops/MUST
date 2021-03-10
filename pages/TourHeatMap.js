@@ -1,15 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    TouchableWithoutFeedback,
-} from "react-native";
+import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from "react-native";
 
-export default function Welcome({ route, navigation }) {
-    const { name } = route.params;
+export default function TourHeatMap({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
@@ -17,17 +10,19 @@ export default function Welcome({ route, navigation }) {
                 <Text style={styles.subheader}>Mobile Urban Safety Tracker</Text>
             </View>
             <View style={styles.paragraphContainer}>
-                <Text style={styles.subheader}>Welcome, {name}</Text>
+                <Text style={styles.subheader}>HeatMap Mode</Text>
                 <Text style={styles.paragraphs}>
-                    With M.U.S.T in your hands, you have access to crime data across the nation.
-                    First, let us tell you what your new tool can do.
-                </Text>
+                    With HeatMap Mode, you have access to all kinds of useful information.
+                    Interact with the map to see various crime-rate statistics.
+            </Text>
             </View>
-            <View style={styles.mapButton}>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('TourHeat')}>
-                    <Image source={require("../assets/map.png")} />
-                </TouchableWithoutFeedback>
-                <Text>Get Started</Text>
+            <View style={styles.tourRow}>
+                <Image style={styles.imageRow} source={require("../assets/circleHeat.png")} />
+                <View style={styles.arrowRow}>
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('TourInfo')}>
+                        <Image source={require("../assets/arrowRight.png")} />
+                    </TouchableWithoutFeedback>
+                </View>
             </View>
             <View style={styles.bottomTextContainer}>
                 <Text style={styles.bottomText}>Skip Tour </Text>
@@ -55,12 +50,20 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 
-    bottomTextContainer: {
-        flexDirection: 'row'
+    paragraphContainer: {
+        alignItems: 'center',
+        textAlign: 'center'
     },
 
-    paragraphContainer: {
+    tourRow: {
+        alignSelf: 'stretch',
+        flexDirection: 'row',
+        justifyContent: 'center',
         alignItems: 'center'
+    },
+
+    bottomTextContainer: {
+        flexDirection: 'row'
     },
 
     header: {
@@ -77,13 +80,13 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
 
-    bottomText: {
-        fontSize: 11,
+    arrowRow: {
+        position: 'absolute',
+        right: 0
     },
 
-    mapButton: {
-        justifyContent: "flex-start",
-        alignItems: "center",
+    bottomText: {
+        fontSize: 11,
     },
 
     bottomTextLink: {
