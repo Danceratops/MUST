@@ -3,8 +3,10 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./pages/Home";
+import Exit from "./pages/Exit";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Feedback from "./pages/Feedback";
 import Welcome from "./pages/Tour/Welcome";
 import TourHeatMap from "./pages/Tour/TourHeatMap";
 import TourInfoBuddy from "./pages/Tour/TourInfoBuddy";
@@ -28,7 +30,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+        <Stack.Screen name="Exit" component={Exit} options={{ headerShown: false }} />
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
+        <Stack.Screen name="Feedback" component={Feedback} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} initialParams={{ name: user.name }} />
         <Stack.Screen name="TourHeat" component={TourHeatMap} options={{ headerShown: false }} />
