@@ -13,6 +13,7 @@ import SilentModeHome from "./pages/SilentMode/silentModeHome";
 import SilentModeContent from "./pages/SilentMode/silentModeContent";
 import HeatMap from "./pages/HeatMap Mode/HeatMap";
 import Location from "./pages/Location";
+import InfoBuddy from "./pages/InfoBuddy/InfoBuddyHome";
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,7 @@ export default function App() {
         <Stack.Screen name="SilentModeContent" component={SilentModeContent} />
         <Stack.Screen name="HeatMap" component={HeatMap} />
         <Stack.Screen name="Location" component={Location} />
+        <Stack.Screen name="InfoBuddy" component={InfoBuddy} />
       </Stack.Navigator>
     </NavigationContainer>
   );
