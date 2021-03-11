@@ -29,7 +29,7 @@ export default function Home({ navigation }) {
       </View>
       <View style={styles.bottomTextContainer}>
         <Text style={styles.bottomText}>Have an account already? </Text>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Login')}><Text style={styles.bottomTextLink}>Login Here</Text></TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Exit')}><Text style={styles.bottomTextLink}>Login Here</Text></TouchableWithoutFeedback>
       </View>
       <StatusBar style="auto" />
     </View>
