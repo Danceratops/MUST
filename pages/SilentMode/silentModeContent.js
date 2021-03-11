@@ -61,9 +61,5 @@ const styles = StyleSheet.create({
         borderRadius: 200,
         width: 350,
         height: 350
-    },
-
-    innerCircle: {
-
     }
 });
