@@ -39,9 +39,6 @@ const styles = StyleSheet.create({
         paddingRight: 10
     },
 
-    headingContainer: {
-    },
-
     header: {
         color: "#000",
         fontSize: 64,

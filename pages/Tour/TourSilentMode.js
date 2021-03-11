@@ -18,7 +18,7 @@ export default function TourSilentMode({ navigation }) {
             </View>
             <View style={styles.tourRow}>
                 <View style={styles.arrowRow}>
-                    <TouchableWithoutFeedback onPress={() => navigation.navigate('SilentModeHome')}>
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('TourInfo')}>
                         <Image source={require("../../assets/arrowLeft.png")} />
                     </TouchableWithoutFeedback>
                 </View>
