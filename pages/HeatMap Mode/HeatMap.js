@@ -10,7 +10,12 @@ import {
 export default function HeatMap({ navigation }) {
     return (
         <View style={styles.container}>
-            <TouchableWithoutFeedback onPress={() => navigation.navigate('HeatMapLocation')}>
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('Location', {
+                title: 'Texas',
+                rating: 23,
+                crimesArray: ['Theft', 'Murder', 'Car Jacking', 'Assault'],
+                timesArray: ['6 A.M', '9 P.M', '12 A.M']
+            })}>
                 <Image source={require("../../assets/placeholderMap.png")} />
             </TouchableWithoutFeedback>
             <StatusBar style="auto" />

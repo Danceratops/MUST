@@ -10,31 +10,26 @@ import {
     SafeAreaView
 } from "react-native";
 
-const commonCrimes = ['Theft', 'Murder', 'Car Jacking', 'Assault'];
-
-const commonTimes = ['6 A.M', '9 P.M', '12 A.M'];
-
-export default function HeatMapLocation({ navigation }) {
-
+export default function HeatMapLocation({ navigation, route }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.close}>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('HeatMap')}>
-                    <Image source={require('../../assets/close.png')} />
+                <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
+                    <Image source={require('../assets/close.png')} />
                 </TouchableWithoutFeedback>
             </View>
             <View style={styles.headingContainer}>
-                <Text style={styles.header}>Location</Text>
+                <Text style={styles.header}>{route.params.title}</Text>
                 <Text style={styles.subheader}>M.U.S.T Safety Rating</Text>
             </View>
             <View style={styles.rating}>
-                <Text style={styles.ratingText}>23</Text>
+                <Text style={styles.ratingText}>{route.params.rating}</Text>
             </View>
             <Text style={styles.sectionHeader}>Crime Statistics</Text>
             <Text style={styles.subsectionHeader}>Most Common Crimes:</Text>
             <View style={styles.commonList}>
                 {
-                    commonCrimes.map((item, key) => (
+                    route.params.crimesArray.map((item, key) => (
                         <Text key={key} style={styles.listText}>{item}</Text>
                     ))
                 }
@@ -42,7 +37,7 @@ export default function HeatMapLocation({ navigation }) {
             <Text style={styles.subsectionHeader}>Most Common Timeframes:</Text>
             <View style={styles.commonList}>
                 {
-                    commonTimes.map((item, key) => (
+                    route.params.timesArray.map((item, key) => (
                         <Text key={key} style={styles.listText}>{item}</Text>
                     ))
                 }

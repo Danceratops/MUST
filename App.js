@@ -12,7 +12,7 @@ import TourSilentMode from "./pages/Tour/TourSilentMode";
 import SilentModeHome from "./pages/SilentMode/silentModeHome";
 import SilentModeContent from "./pages/SilentMode/silentModeContent";
 import HeatMap from "./pages/HeatMap Mode/HeatMap";
-import HeatMapLocation from "./pages/HeatMap Mode/HeatMapLocation";
+import Location from "./pages/Location";
 
 const Stack = createStackNavigator();
 
@@ -36,7 +36,7 @@ export default function App() {
         <Stack.Screen name="SilentModeHome" component={SilentModeHome} />
         <Stack.Screen name="SilentModeContent" component={SilentModeContent} />
         <Stack.Screen name="HeatMap" component={HeatMap} />
-        <Stack.Screen name="HeatMapLocation" component={HeatMapLocation} />
+        <Stack.Screen name="Location" component={Location} />
       </Stack.Navigator>
     </NavigationContainer>
   );
