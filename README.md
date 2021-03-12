@@ -10,15 +10,15 @@ M.U.S.T provides a non-intrusive mobile application designed with safety in mind
   Download Node.js and NPM from the [node.js website](https://nodejs.org/en/) then clone the repo to your computer.
   Navigate to the repos directory and install packages.
 
-    ```shell
-      cd MUST/
-      npm install
-    ```
+  ```shell
+    cd MUST/
+    npm install
+  ```
   Install the expo client.
 
-    ```shell
-      npm i -g expo-cli
-    ```
+  ```shell
+    npm i -g expo-cli
+  ```
 
 2. 📁 Start developing
   In the repos directory start up the project.
@@ -35,6 +35,8 @@ M.U.S.T provides a non-intrusive mobile application designed with safety in mind
 ## 🧐 What's inside?
 
   A quick look at the top-level files and directories you'll see in MUST.
+    
+  ```shell
     .
     ├── assets
     ├── components
@@ -46,6 +48,7 @@ M.U.S.T provides a non-intrusive mobile application designed with safety in mind
     ├── babel.config.js
     ├── package-lock.json
     └── package.json
+  ```
     
   1.  **`/assets`**: This directory contains all of the images for the app.
 
