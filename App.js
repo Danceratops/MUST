@@ -1,9 +1,9 @@
 import "react-native-gesture-handler";
 import React from "react";
-//import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import APIController from "./components/apiController";
 import Home from "./pages/Home";
 import Exit from "./pages/Exit";
 import SignUp from "./pages/SignUp";
