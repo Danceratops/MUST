@@ -24,10 +24,6 @@ export default function TourHeatMap({ navigation }) {
                     </TouchableWithoutFeedback>
                 </View>
             </View>
-            <View style={styles.bottomTextContainer}>
-                <Text style={styles.bottomText}>Skip Tour </Text>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('SilentModeHome')}><Text style={styles.bottomTextLink}>Here</Text></TouchableWithoutFeedback>
-            </View>
             <StatusBar style="auto" />
         </View>
     );

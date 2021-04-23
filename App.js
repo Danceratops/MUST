@@ -1,7 +1,9 @@
 import "react-native-gesture-handler";
 import React from "react";
+//import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./pages/Home";
 import Exit from "./pages/Exit";
 import SignUp from "./pages/SignUp";
@@ -25,6 +27,19 @@ var user = {
   name: "Danielle Reed"
 }
 
+const ContentStack = createBottomTabNavigator();
+
+function ContentStackScreen() {
+  return (
+    <ContentStack.Navigator initialRouteName="SilentModeHome">
+      <ContentStack.Screen name="HeatMap" component={HeatMap} />
+      <ContentStack.Screen name="InfoBuddy" component={InfoBuddy} />
+      <ContentStack.Screen name="SilentModeHome" component={SilentModeHome} />
+      <ContentStack.Screen name="Feedback" component={Feedback} />
+    </ContentStack.Navigator>
+  );
+}
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -32,17 +47,14 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Exit" component={Exit} options={{ headerShown: false }} />
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
-        <Stack.Screen name="Feedback" component={Feedback} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} initialParams={{ name: user.name }} />
         <Stack.Screen name="TourHeat" component={TourHeatMap} options={{ headerShown: false }} />
         <Stack.Screen name="TourInfo" component={TourInfoBuddy} options={{ headerShown: false }} />
         <Stack.Screen name="TourSilent" component={TourSilentMode} options={{ headerShown: false }} />
-        <Stack.Screen name="SilentModeHome" component={SilentModeHome} />
-        <Stack.Screen name="SilentModeContent" component={SilentModeContent} />
-        <Stack.Screen name="HeatMap" component={HeatMap} />
-        <Stack.Screen name="Location" component={Location} />
-        <Stack.Screen name="InfoBuddy" component={InfoBuddy} />
+        <Stack.Screen name="SilentModeContent" component={SilentModeContent} options={{ headerShown: false }} />
+        <Stack.Screen name="Location" component={Location} options={{ headerShown: false }} />
+        <Stack.Screen name="Content" component={ContentStackScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
