@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-around",
         paddingLeft: 10,
-        paddingRight: 10
+        paddingRight: 10,
+        marginTop: 50
     },
 
     close: {

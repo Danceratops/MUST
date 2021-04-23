@@ -24,10 +24,6 @@ export default function TourInfoBuddy({ navigation }) {
                     <Image source={require("../../assets/arrowRight.png")} />
                 </TouchableWithoutFeedback>
             </View>
-            <View style={styles.bottomTextContainer}>
-                <Text style={styles.bottomText}>Skip Tour </Text>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('SilentModeHome')}><Text style={styles.bottomTextLink}>Here</Text></TouchableWithoutFeedback>
-            </View>
             <StatusBar style="auto" />
         </View>
     );

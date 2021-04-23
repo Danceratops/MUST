@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         paddingLeft: 10,
-        paddingRight: 10
+        paddingRight: 10,
+        marginTop: 50
     },
 
     header: {
