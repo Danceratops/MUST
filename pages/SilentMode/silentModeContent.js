@@ -7,6 +7,7 @@ import {
     View,
     Image
 } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function SilentModeContent({ navigation }) {
     return (
@@ -14,10 +15,12 @@ export default function SilentModeContent({ navigation }) {
             <View style={styles.headingContainer}>
                 <Text style={styles.header}>In Silent Mode</Text>
             </View>
-            {/* animate this */}
             <View style={styles.nextButton}>
                 <Image style={styles.innerCircle} source={require("../../assets/SilentModeLogo.png")} />
             </View>
+            <TouchableOpacity onPress={() => { navigation.goBack() }} activeOpacity={0.95} style={styles.button}>
+                <Text style={styles.buttonText} >End Silent Mode</Text>
+            </TouchableOpacity>
             <StatusBar style="auto" />
         </View>
     );
@@ -29,7 +32,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         backgroundColor: "#F6F6F6",
         alignItems: "center",
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         paddingLeft: 10,
         paddingRight: 10,
     },
@@ -57,9 +60,24 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 50,
+        marginBottom: 50,
         backgroundColor: '#58CFCF',
         borderRadius: 200,
         width: 350,
         height: 350
+    },
+
+    button: {
+        backgroundColor: '#2E839A',
+        width: 300,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 20
+    },
+
+    buttonText: {
+        color: '#fff',
+        fontSize: 18
     }
 });

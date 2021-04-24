@@ -29,10 +29,6 @@ export default function Welcome({ route, navigation }) {
                 </TouchableWithoutFeedback>
                 <Text>Get Started</Text>
             </View>
-            <View style={styles.bottomTextContainer}>
-                <Text style={styles.bottomText}>Skip Tour </Text>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('InfoBuddy')}><Text style={styles.bottomTextLink}>Here</Text></TouchableWithoutFeedback>
-            </View>
             <StatusBar style="auto" />
         </View>
     );
