@@ -34,14 +34,6 @@ export default function HeatMapLocation({ navigation, route }) {
                     ))
                 }
             </View>
-            <Text style={styles.subsectionHeader}>Most Common Timeframes:</Text>
-            <View style={styles.commonList}>
-                {
-                    route.params.timesArray.map((item, key) => (
-                        <Text key={key} style={styles.listText}>{item}</Text>
-                    ))
-                }
-            </View>
             <StatusBar style="auto" />
         </SafeAreaView>
     );

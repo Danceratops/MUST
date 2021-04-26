@@ -36,7 +36,7 @@ export default function APIController(mode, distance) {
     } else if (mode === "infoBuddy") {
 
         /* Construct infoBuddy apiCall string */
-        apiCall += `lat=${state.lat}&lon=${state.lon}&distance=${distance}&datetime_ini=${state.initDate}&datetime_end=${state.endDate}&page_size=50`;
+        apiCall = `https://api.crimeometer.com/v1/incidents/stats?lat=${state.lat}&lon=${state.lon}&distance=${distance}&datetime_ini=${state.initDate}&datetime_end=${state.endDate}&page_size=10`;
 
         return apiCall;
     } else if (mode === "heatMap") {
