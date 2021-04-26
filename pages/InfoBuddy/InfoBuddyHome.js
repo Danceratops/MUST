@@ -7,9 +7,13 @@ import {
     TouchableOpacity
 } from "react-native";
 import { Slider } from 'react-native-elements';
+import axios from 'axios';
+
+import APIController from "../../components/apiController";
 
 export default function InfoBuddy({ navigation }) {
-    const [sliderValue, setSliderValue] = useState(5);
+    const access_token = 'j4qCgATUMWmSlONfiFyX9sHPj1B4mhh6gnernWX5';
+    let [sliderValue, setSliderValue] = useState(5);
     const [buttonFlick, setButtonFlick] = useState(true);
     const [url, setUrl] = useState('');
     const [crimeData, setCrimeData] = useState({});
