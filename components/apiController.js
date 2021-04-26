@@ -1,5 +1,5 @@
 import React from "react";
-import GetLocation from 'react-native-get-location'
+import GetLocation from "react-native";
 
 export default function APIController({mode, distance}) {
     
