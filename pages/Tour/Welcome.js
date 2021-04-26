@@ -37,7 +37,7 @@ export default function Welcome({ route, navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingBottom: 10,
+        paddingBottom: 50,
         paddingTop: 50,
         backgroundColor: "#F6F6F6",
         alignItems: "center",
