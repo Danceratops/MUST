@@ -16,7 +16,6 @@ export default function InfoBuddy({ navigation }) {
     let [sliderValue, setSliderValue] = useState(5);
     const [buttonFlick, setButtonFlick] = useState(true);
     const [url, setUrl] = useState('');
-    const [crimeData, setCrimeData] = useState({});
 
     const submitInfo = () => {
         let distance = 0;
@@ -32,18 +31,23 @@ export default function InfoBuddy({ navigation }) {
 
         setUrl(APIController("infoBuddy", distance));
 
+        /* navigation.navigate('Location', {
+            title: sliderValue + distanceText,
+            rating: 52,
+            crimesArray: ['Theft', 'Assault',  'Intimidation', 'Homicide']
+        }); */
+
         axios.get(url, {
             headers: {
                 'Content-Type': 'application/json',
                 'x-api-key': access_token
             }
         }).then(res => {
-            setCrimeData({
+            navigation.navigate('Location', {
                 title: sliderValue + distanceText,
                 rating: (res.data.total_incidents / 700).toFixed(0),
                 crimesArray: [res.data.report_types[0].type, res.data.report_types[1].type, res.data.report_types[2].type, res.data.report_types[3].type]
             });
-            navigation.navigate('Location', crimeData);
         }).catch(err => {
             console.log(err);
         })
