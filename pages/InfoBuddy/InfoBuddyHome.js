@@ -11,6 +11,39 @@ import { Slider } from 'react-native-elements';
 export default function InfoBuddy({ navigation }) {
     const [sliderValue, setSliderValue] = useState(5);
     const [buttonFlick, setButtonFlick] = useState(true);
+    const [url, setUrl] = useState('');
+    const [crimeData, setCrimeData] = useState({});
+
+    const submitInfo = () => {
+        let distance = 0;
+        let distanceText = '';
+
+        if (buttonFlick) {
+            distance = sliderValue + 'mi';
+            distanceText = ' Miles Out';
+        } else {
+            distance = sliderValue = 'km';
+            distanceText = ' Kilemeters Out'
+        }
+
+        setUrl(APIController("infoBuddy", distance));
+
+        axios.get(url, {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': access_token
+            }
+        }).then(res => {
+            setCrimeData({
+                title: sliderValue + distanceText,
+                rating: (res.data.total_incidents / 700).toFixed(0),
+                crimesArray: [res.data.report_types[0].type, res.data.report_types[1].type, res.data.report_types[2].type, res.data.report_types[3].type]
+            });
+            navigation.navigate('Location', crimeData);
+        }).catch(err => {
+            console.log(err);
+        })
+    }
 
     return (
         <View style={styles.container}>
@@ -42,12 +75,7 @@ export default function InfoBuddy({ navigation }) {
                     <Text style={buttonFlick ? styles.inactiveText : styles.activeText} >KM</Text>
                 </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('Location', {
-                title: sliderValue + ' Miles Out',
-                rating: 23,
-                crimesArray: ['Theft', 'Assault'],
-                timesArray: ['5 A.M', '7 P.M', '3 A.M']
-            })} activeOpacity={0.95} style={styles.button}>
+            <TouchableOpacity onPress={() => { submitInfo() }} activeOpacity={0.95} style={styles.button}>
                 <Text style={styles.buttonText} >Show Me The Info</Text>
             </TouchableOpacity>
             <StatusBar style="auto" />
