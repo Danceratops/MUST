@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { Platform } from "react-native";
+import React, { useState, useEffect, useRef } from 'react';
 import {
     StyleSheet,
     Text,
@@ -8,14 +7,82 @@ import {
     Image
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import axios from 'axios';
+
+import APIController from "../../components/apiController";
+
+const useInterval = (callback, delay) => {
+    const savedCallback = useRef();
+
+    useEffect(() => {
+        savedCallback.current = callback;
+    }, [callback]);
+
+    useEffect(() => {
+        function tick() {
+            savedCallback.current();
+        }
+        if (delay !== null) {
+            let id = setInterval(tick, delay);
+            return () => clearInterval(id);
+        }
+    }, [delay]);
+};
+
+const colorOptions = {
+    blue: '#58CFCF',
+    yellow: '#ffe51c',
+    orange: '#ff8519',
+    red: '#fc0808'
+};
 
 export default function SilentModeContent({ navigation }) {
+    const access_token = 'j4qCgATUMWmSlONfiFyX9sHPj1B4mhh6gnernWX5';
+    let [url, setUrl] = useState("");
+    let [timer, setTimer] = useState(0);
+    let [dangerRating, setDangerRating] = useState("#58CFCF");
+
+    function buttonStyle(colorChoice) {
+        return {
+            backgroundColor: colorChoice
+        };
+    };
+
+    useInterval(() => {
+        setUrl(APIController("silentMode", '5mi'));
+        setTimer(1000);
+
+        axios.get(url, {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': access_token
+            }
+        })
+            .then(res => {
+                if (res.data.total_incidents > 700) {
+                    setDangerRating(colorOptions.red);
+                } else if (res.data.total_incidents <= 700 && res.data.total_incidents > 350) {
+                    setDangerRating(colorOptions.orange);
+                } else if (res.data.total_incidents <= 350 && res.data.total_incidents > 100) {
+                    setDangerRating(colorOptions.yellow);
+                } else {
+                    setDangerRating(colorOptions.blue);
+                }
+
+                setTimer(60000);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }, timer);
+
+
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
                 <Text style={styles.header}>In Silent Mode</Text>
             </View>
-            <View style={styles.nextButton}>
+            <View style={[styles.nextButton, buttonStyle(dangerRating)]}>
                 <Image style={styles.innerCircle} source={require("../../assets/SilentModeLogo.png")} />
             </View>
             <TouchableOpacity onPress={() => { navigation.goBack() }} activeOpacity={0.95} style={styles.button}>
@@ -57,12 +124,11 @@ const styles = StyleSheet.create({
     },
 
     nextButton: {
+        borderRadius: 200,
         justifyContent: "center",
         alignItems: "center",
         marginTop: 50,
         marginBottom: 50,
-        backgroundColor: '#58CFCF',
-        borderRadius: 200,
         width: 350,
         height: 350
     },
